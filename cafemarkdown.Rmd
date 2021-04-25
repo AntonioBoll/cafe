@@ -1,0 +1,35 @@
+---
+title: "cafe"
+author: "Antônio Boll"
+date: "4/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+cafe <- read.csv(file="~/Desktop/cafedados.csv",head=TRUE)
+head(cafe)
+```
+
+## Including Plots
+
+
+```{r pressure, echo=FALSE}
+library(ggplot2)
+ggplot(mapping = aes(x=cafe$Year, y=cafe$Value)) +
+  geom_point()+
+  geom_segment(mapping = aes(x=cafe$Year, xend=cafe$Year,y=0,yend=cafe$Value))
+
+```
+
+```{r asjndoasnoi}
+ggplot(mapping = aes(x=cafe$Value)) +
+  geom_bar() 
+```
