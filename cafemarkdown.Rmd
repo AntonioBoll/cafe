@@ -14,8 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r cars}
-cafe <- read.csv(file="~/Desktop/cafedados.csv",head=TRUE)
-head(cafe)
+cafe <- read.csv(file="~/Desktop/cafedados1.csv",head=TRUE)
+
 ```
 
 ## Including Plots
@@ -23,9 +23,9 @@ head(cafe)
 
 ```{r pressure, echo=FALSE}
 library(ggplot2)
-ggplot(mapping = aes(x=cafe$Year, y=cafe$Value)) +
+ggplot(mapping = aes(x=cafe$Year.Code, y=cafe$Value)) +
   geom_point()+
-  geom_segment(mapping = aes(x=cafe$Year, xend=cafe$Year,y=0,yend=cafe$Value))
+  geom_segment(mapping = aes(x=cafe$Year.Code, xend=cafe$Year.Code,y=0,yend=cafe$Value))
 
 ```
 
