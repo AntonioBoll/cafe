@@ -1,0 +1,85 @@
+---
+title: "cafesegundo"
+author: "Antônio Boll"
+date: "4/27/2021"
+output: html_document
+---
+#Dados
+
+```{r cafe10}
+cafep <- read.csv(file="~/Desktop/tabelau.csv",head=TRUE, sep = ";")
+library(dplyr)
+library(ggplot2)
+```
+
+## Gráficos
+
+```{r cafe11}
+Ano <- cafep$Anos
+Compra <- cafep$Preços.para.cultivadores..Naturais.do.Brasil.
+Venda <- cafep$Preço.médio.para.Cafés.naturais.do.Brasil
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=Compra, colour = "Preço médio de compra")) +
+  geom_line(mapping = aes(y=Venda, colour = "Preço médio de venda")) +
+  theme_replace() +
+  ggtitle("Preço de venda e de compra do café natural Brasileiro", 
+        "Valor de venda x Valor de compra em centavo de dólar por libra")
+
+```
+
+```{r cafe12}
+Compra. <- cafep$Preços.para.cultivadores..Robustas.
+Venda. <- cafep$Preço.médio.para.Cafés.Robustas
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=Compra., colour = "Preço médio de compra")) +
+  geom_line(mapping = aes(y=Venda., colour = "Preço médio de venda")) +
+  theme_replace() +
+  ggtitle("Preço de venda e de compra do café robusto", 
+        "Valor de venda x Valor de compra em centavo de dólar por libra")
+```
+```{r cafe13}
+
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=Compra, colour = "Preço de compra do Natural")) +
+  geom_line(mapping = aes(y=Compra., colour = "Preço de compra do Robusto")) +
+  theme_replace() +
+  ggtitle("Preço de compra médio do café Natural e do Robusto", 
+        "Valor em centavo de dólar por libra")
+```
+
+```{r cafe131}
+
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=Venda, colour = "Preço de venda do Natural")) +
+  geom_line(mapping = aes(y=Venda., colour = "Preço de venda do Robusto")) +
+  theme_replace() +
+  ggtitle("Preço de venda médio do café Natural e do Robusto", 
+        "Valor em centavo de dólar por libra")
+```
+
+```{r cafe14}
+ConsumoDoméstico <- cafep$Consumo.Doméstico
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=ConsumoDoméstico)) +
+  theme_replace() +
+  ggtitle("Consumo de Café no Brasil", 
+        "Consumo medido em mil sacos de 60kg")
+```
+
+```{r cafe16}
+ProduçãoTotal <- cafep$Produção.total
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=ProduçãoTotal)) +
+  theme_replace() +
+  ggtitle("Produção de Café no Brasil", 
+        "Produção medida em mil sacos de 60kg")
+```
+
+```{r cafe218973}
+Exportações <- cafep$Exportações..Anual.
+ggplot(mapping=aes(x=Ano)) +
+  geom_line(mapping = aes(y=Exportações)) +
+  theme_replace() +
+  ggtitle("Exportação de Café do Brasil", 
+        "Exportação medida em mil sacos de 60kg")
+```
